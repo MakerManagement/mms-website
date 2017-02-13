@@ -5,7 +5,15 @@
     "item_name": "Raspberry Pi 2",
     "__v": 0,
     "tags": [],
-    "categories": [],
+    "categories": [
+      {
+        "category":
+        {
+          "eng": "Test Catagory 1",
+          "nor": "Test katagori 1"
+        }
+      }
+    ],
     "description": {
       "eng": "The Raspberry Pi 2 Model B is the second generation Raspberry Pi. It replaced the original Raspberry Pi 1 Model B+ in February 2015.",
       "nor": "The Raspberry Pi 2 Modell B er den andre generasjonen Raspberry Pi. Den erstattet den opprinnelige Raspberry Pi 1 Modell B + i februar 2015."
@@ -35,10 +43,12 @@
       {
         "_id": "589fb3299bbc9428b0ec3952",
         "__v": 0,
-        "category": {
-          "eng": "Test Catagory",
-          "nor": "Test Kategori"
+        "category":
+        {
+          "eng": "Test Catagory 2",
+          "nor": "Test Kategori 2"
         }
+
       }
     ],
     "description": {

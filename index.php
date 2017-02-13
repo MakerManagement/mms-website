@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="sources/css/main.css"/>
     <!-- Importing font for search icon !-->
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="sources/js/script.js" async></script>
 </head>
 <body>
 <?php

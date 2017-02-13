@@ -112,3 +112,8 @@ body{
     outline:none;
     background: #ffffff;
 }
+
+#aside-box{
+    float: left;
+    display: block;
+}
