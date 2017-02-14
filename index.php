@@ -1,10 +1,9 @@
 <?php
-session_start();
-$_SESSION["language"] = "eng";
+include "sources/lang/common.php";
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="<?php echo $_SESSION["lang"]; ?>">
 <head>
     <meta charset="UTF-8" />
     <title>Makerspace Management System</title>
@@ -12,16 +11,17 @@ $_SESSION["language"] = "eng";
     <!-- Importing font for search icon !-->
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <script>
-        const language = "<?php echo $_SESSION["language"]; ?>";
+        const language = "<?php
+            echo $_SESSION["lang"]; ?>";
     </script>
     <script src="sources/js/script.js" async></script>
 </head>
 <body>
 <?php
-    include("sources/html/wrapper.html");
+include("sources/html/wrapper.php");
 ?>
 <div id="main-body">
-    <h1>Makerspace Inventory</h1>
+    <h1><?php echo $lang["MAIN_HEADER"]; ?></h1>
     <div id="main-content">
         <ul id="main-list">
 

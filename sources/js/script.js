@@ -28,7 +28,6 @@ readTextFile("sources/json/response-categories.json", function (text)
     for (const item of Object.values(data))
     {
         const categories = item.category[language];
-        //const description = item["description"][language];
 
         const categories_a = document.createElement("a");
         const categories_li = document.createElement("li");
@@ -38,9 +37,6 @@ readTextFile("sources/json/response-categories.json", function (text)
 
         categories_li.appendChild(categories_a);
         ul_categoryList.appendChild(categories_li);
-
-        console.log(categories);
-        //console.log(description);
     }
 });
 
@@ -54,16 +50,10 @@ readTextFile("sources/json/response-items.json", function (text)
     {
         const items_a = document.createElement("a");
         const items_li = document.createElement("li");
-        //const categories = item.categories.category[language];
-        const itemName = item["item_name"];
-
-        items_a.textContent = itemName;
+        items_a.textContent = item["item_name"];
         items_a.setAttribute("href", "#");
 
         items_li.appendChild(items_a);
         ul_itemList.appendChild(items_li);
-
-        //console.log(categories);
-        console.log(itemName);
     }
 });
