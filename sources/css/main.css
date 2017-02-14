@@ -113,7 +113,36 @@ body{
     background: #ffffff;
 }
 
+#main-body{
+    float: left;
+    width: 75%;
+}
+
 #aside-box{
     float: left;
     display: block;
+    margin-right: 40px;
+    border-right: solid;
+    padding-right: 15px;
 }
+
+#aside-box a{
+    color: white;
+    text-decoration: none;
+}
+
+#aside-box li{
+    margin: 10px 0;
+}
+
+a{
+    color: white;
+}
+
+#main-list{
+    height: 1em;
+    line-height: 1em;
+    overflow: visible;
+}
+
+

@@ -1,0 +1,189 @@
+[
+  {
+    "_id": "589f9e399732312a9cfdd00d",
+    "image_url": "https://www.raspberrypi.org/wp-content/uploads/2016/02/Raspberry-Pi-2-web.jpg",
+    "item_name": "Raspberry Pi 2",
+    "__v": 0,
+    "tags": [],
+    "categories": [],
+    "description": {
+      "eng": "The Raspberry Pi 2 Model B is the second generation Raspberry Pi. It replaced the original Raspberry Pi 1 Model B+ in February 2015.",
+      "nor": "The Raspberry Pi 2 Modell B er den andre generasjonen Raspberry Pi. Den erstattet den opprinnelige Raspberry Pi 1 Modell B + i februar 2015."
+    }
+  },
+  {
+    "_id": "589fa3239c4dd7436c87d3ac",
+    "image_url": "http://placehold.it/300/09f/fff.jpg",
+    "item_name": "Test Item",
+    "__v": 4,
+    "locale": {
+      "_id": "589fabca0b0bdb1f98d94664",
+      "locale": "OH1-2-3",
+      "__v": 0
+    },
+    "tags": [
+      {
+        "_id": "589fa0bc125786241c6f2ffa",
+        "__v": 0,
+        "tag": {
+          "eng": "Electronics",
+          "nor": "Elektronikk"
+        }
+      }
+    ],
+    "categories": [
+      {
+        "_id": "589fb3299bbc9428b0ec3952",
+        "__v": 0,
+        "category": {
+          "eng": "Test Catagory",
+          "nor": "Test Kategori"
+        }
+      }
+    ],
+    "description": {
+      "eng": "This is a test item",
+      "nor": "Dette er en ting for testing"
+    }
+  },
+  {
+    "_id": "58a2198c56a0ed1e3860d459",
+    "image_url": "http://placehold.it/300/09f/fff.jpg",
+    "locale": {
+      "_id": "589fabca0b0bdb1f98d94664",
+      "locale": "OH1-2-3",
+      "__v": 0
+    },
+    "item_name": "Arduino Uno",
+    "__v": 0,
+    "tags": [
+      {
+        "_id": "589fa0bc125786241c6f2ffa",
+        "__v": 0,
+        "tag": {
+          "eng": "Electronics",
+          "nor": "Elektronikk"
+        }
+      }
+    ],
+    "categories": [
+      {
+        "_id": "589fb3299bbc9428b0ec3952",
+        "__v": 0,
+        "category": {
+          "eng": "Test Catagory",
+          "nor": "Test Kategori"
+        }
+      }
+    ],
+    "description": {
+      "eng": "Arduino Uno is the ideal board for getting started with electronics, through fun and engaging hands-on projects. This board is your entry to the unique Arduino experience: great for learning the basics of how sensors and actuators work, and an essential tool for your rapid prototyping needs. Arduino Uno Rev3 is the most used and documented board in the Arduino family.",
+      "nor": "Arduino Uno er den ideelle brett for å komme i gang med elektronikk, gjennom morsomme og engasjerende hands-on prosjekter. Arduino Uno Rev3 er den mest brukte og dokumentert styret i Arduino familien."
+    }
+  },
+  {
+    "_id": "58a21a1156a0ed1e3860d45a",
+    "image_url": "http://placehold.it/300/09f/fff.jpg",
+    "locale": {
+      "_id": "589fabca0b0bdb1f98d94664",
+      "locale": "OH1-2-3",
+      "__v": 0
+    },
+    "item_name": "Lorem ipsum",
+    "__v": 0,
+    "tags": [
+      {
+        "_id": "589fa0bc125786241c6f2ffa",
+        "__v": 0,
+        "tag": {
+          "eng": "Electronics",
+          "nor": "Elektronikk"
+        }
+      }
+    ],
+    "categories": [
+      {
+        "_id": "589fb3299bbc9428b0ec3952",
+        "__v": 0,
+        "category": {
+          "eng": "Test Catagory",
+          "nor": "Test Kategori"
+        }
+      }
+    ],
+    "description": {
+      "eng": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed feugiat non mauris sed luctus. Praesent tincidunt volutpat dictum. Ut at odio velit. Donec ac libero augue. Proin leo ligula, feugiat.",
+      "nor": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed feugiat non mauris sed luctus. Praesent tincidunt volutpat dictum. Ut at odio velit. Donec ac libero augue. Proin leo ligula, feugiat."
+    }
+  },
+  {
+    "_id": "58a21fb656a0ed1e3860d45b",
+    "image_url": "https://cdn-shop.adafruit.com/1200x900/1138-00.jpg",
+    "locale": {
+      "_id": "589fabca0b0bdb1f98d94664",
+      "locale": "OH1-2-3",
+      "__v": 0
+    },
+    "item_name": "Adafruit NeoPixel Digital RGB LED Strip - White 60 LED",
+    "__v": 0,
+    "tags": [
+      {
+        "_id": "589fa0bc125786241c6f2ffa",
+        "__v": 0,
+        "tag": {
+          "eng": "Electronics",
+          "nor": "Elektronikk"
+        }
+      }
+    ],
+    "categories": [
+      {
+        "_id": "589fb3299bbc9428b0ec3952",
+        "__v": 0,
+        "category": {
+          "eng": "Test Catagory",
+          "nor": "Test Kategori"
+        }
+      }
+    ],
+    "description": {
+      "eng": "The strip is made of flexible White PCB material, and comes with a weatherproof sheathing. You can cut this stuff pretty easily with wire cutters, there are cut-lines every 1.7cm (1 LED each). Solder to the copper pads and you're good to go. Of course, you can also connect strips together to make them longer, just watch how much current you need! We have a 5V/2A supply that should be able to drive 1 meter (depending on use) and a 5V/10A supply that can drive up to 4 meters (depending on use) You must use a 5V DC power supply to power these strips, do not use higher than 6V or you can destroy the entire strip.",
+      "nor": "Stripen er laget av fleksibel Hvit PCB materiale, og kommer med et værbestandig bekledningen. Du kan klippe denne ting ganske lett med avbitertang, det er cut-linjer hver 1.7cm (1 LED hver). Lodd til kobber pads og du er flink til å gå. Selvfølgelig kan du også koble strimler sammen for å gjøre dem lenger, bare se hvor mye strøm du trenger! Vi har en 5V / 2A tilbud som bør være i stand til å kjøre en meter (avhengig av bruk) og et 5V / 10A strømforsyning som kan kjøre opp til 4 meter (avhengig av bruk) Du må bruke en 5V DC strømforsyning for å drive disse strimler bruk ikke høyere enn 6V, eller du kan ødelegge hele stripen."
+    }
+  },
+  {
+    "_id": "58a246dd450dd744703059e6",
+    "image_url": "https://cdn-shop.adafruit.com/1200x900/1138-00.jpg",
+    "locale": {
+      "_id": "589fabca0b0bdb1f98d94664",
+      "locale": "OH1-2-3",
+      "__v": 0
+    },
+    "item_name": "A random Item",
+    "__v": 0,
+    "tags": [
+      {
+        "_id": "589fa0bc125786241c6f2ffa",
+        "__v": 0,
+        "tag": {
+          "eng": "Electronics",
+          "nor": "Elektronikk"
+        }
+      }
+    ],
+    "categories": [
+      {
+        "_id": "589fb3299bbc9428b0ec3952",
+        "__v": 0,
+        "category": {
+          "eng": "Test Catagory",
+          "nor": "Test Kategori"
+        }
+      }
+    ],
+    "description": {
+      "eng": "This is a random item that suddenly appeared in the system!",
+      "nor": "Brått så kom det en ting i systemet."
+    }
+  }
+]

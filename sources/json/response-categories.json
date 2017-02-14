@@ -1,0 +1,82 @@
+[
+  {
+    "_id": "589fb3299bbc9428b0ec3952",
+    "__v": 0,
+    "category": {
+      "eng": "Test Category",
+      "nor": "Test Kategori"
+    }
+  },
+  {
+    "_id": "58a24371450dd744703059d9",
+    "__v": 0,
+    "category": {
+      "eng": "Test Category 2",
+      "nor": "Test Kategori 2"
+    }
+  },
+  {
+    "_id": "58a2437c450dd744703059da",
+    "__v": 0,
+    "category": {
+      "eng": "Test Category 3",
+      "nor": "Test Kategori 3"
+    }
+  },
+  {
+    "_id": "58a24383450dd744703059db",
+    "__v": 0,
+    "category": {
+      "eng": "Test Category 4",
+      "nor": "Test Kategori 4"
+    }
+  },
+  {
+    "_id": "58a24395450dd744703059dc",
+    "__v": 0,
+    "category": {
+      "eng": "Test Category 5",
+      "nor": "Test Kategori 5"
+    }
+  },
+  {
+    "_id": "58a2439b450dd744703059dd",
+    "__v": 0,
+    "category": {
+      "eng": "Test Category 6",
+      "nor": "Test Kategori 6"
+    }
+  },
+  {
+    "_id": "58a243a2450dd744703059de",
+    "__v": 0,
+    "category": {
+      "eng": "Test Category 7",
+      "nor": "Test Kategori 7"
+    }
+  },
+  {
+    "_id": "58a243a9450dd744703059df",
+    "__v": 0,
+    "category": {
+      "eng": "Test Category 8",
+      "nor": "Test Kategori 8"
+    }
+  },
+  {
+    "_id": "58a243b0450dd744703059e0",
+    "__v": 0,
+    "category": {
+      "eng": "Test Category 9",
+      "nor": "Test Kategori 9"
+    }
+  },
+  {
+    "_id": "58a24453450dd744703059e1",
+    "__v": 0,
+    "category": {
+      "eng": "Test Category 10",
+      "nor": "Test Kategori 10"
+    }
+  }
+]
