@@ -145,4 +145,8 @@ a{
     overflow: visible;
 }
 
+#main-list li{
+    margin: 10px 0;
+}
+
 
