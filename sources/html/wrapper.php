@@ -1,3 +1,9 @@
+<div id="language-chooser">
+    <li><a href="/?lang=eng">English</a></li>
+    <li>|</li>
+    <li><a href="/?lang=nor">Norsk</a></li>
+</div>
+
 <div id="top-banner">
     <div id="wrapper-logo">
         <img class="resize_fit_center" src="sources/logos/logo-lang.png" alt="MakerSpace logo" />

@@ -18,9 +18,20 @@ Edge support
     }
 }
 
+#language-chooser{
+    margin-bottom: 0%;
+    text-align: right;
+    vertical-align: middle;
+}
+
+#language-chooser li{
+    list-style: none;
+    display: inline;
+}
+
 #wrapper-logo {
     height: 70px;
-    width: 300px;
+    width: 400px;
     margin-bottom: 20px;
 }
 
@@ -42,7 +53,7 @@ Edge support
 
 .search-box{
     margin-left: 100px;
-    width: 200px;
+    width: 100%;
     margin-bottom: 20px;
 }
 
