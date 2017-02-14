@@ -1,6 +1,21 @@
+:root{
+    --background_color: #3e4854;
+    --search_text_color: #81929d;
+}
+
 body{
-    background: #343D46;
+    background: var(--background_color);
     color: white;
+}
+
+/*
+Edge support
+ */
+@supports (-ms-ime-align:auto) {
+    body{
+        background: #3e4854;
+        color: white;
+    }
 }
 
 #wrapper-logo {
@@ -45,7 +60,7 @@ body{
     border: none;
     font-size: 10pt;
     float: left;
-    color: #63717f;
+    color: #9bb1c7;
     padding-left: 45px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
@@ -61,19 +76,19 @@ body{
 /* Different browsers, same goal. Set the color of the text in the input */
 
 .search-wrapper input#search::-webkit-input-placeholder {
-    color: #65737e;
+    color: var(--search_text_color);
 }
 
 .search-wrapper input#search:-moz-placeholder { /* Firefox 18- */
-    color: #65737e;
+    color: var(--search_text_color);
 }
 
 .search-wrapper input#search::-moz-placeholder {  /* Firefox 19+ */
-    color: #65737e;
+    color: var(--search_text_color);
 }
 
 .search-wrapper input#search:-ms-input-placeholder {
-    color: #65737e;
+    color: #81929d;
 }
 
 .search-wrapper .icon{
