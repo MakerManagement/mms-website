@@ -38,5 +38,6 @@ switch ($lang) {
         break;
     default:
         $lang_file = 'lang.en.php';
+        $_SESSION["lang"] = "eng";
 }
 include_once $lang_file;
