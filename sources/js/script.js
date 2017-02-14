@@ -5,9 +5,6 @@
 /** @namespace item.categories.category */
 /** @namespace item.categories */
 
-const responseItems = "sources/json/response-items.json";
-const responseCategories = "sources/json/response-categories.json";
-
 function readTextFile(file, callback)
 {
     let rawFile = new XMLHttpRequest();
@@ -23,6 +20,7 @@ function readTextFile(file, callback)
     rawFile.send(null);
 }
 
+const responseCategories = "http://158.39.162.161/api/categories";
 readTextFile(responseCategories, function (text)
 {
     const ul_categoryList = document.getElementById("category-list");
@@ -42,6 +40,9 @@ readTextFile(responseCategories, function (text)
         ul_categoryList.appendChild(categories_li);
     }
 });
+
+
+const responseItems = "http://158.39.162.161/api/items";
 
 readTextFile(responseItems, function (text)
 {
