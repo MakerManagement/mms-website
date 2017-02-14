@@ -5,11 +5,9 @@
 /** @namespace item.categories.category */
 /** @namespace item.categories */
 
-const language = "eng";
-
 function readTextFile(file, callback)
 {
-    const rawFile = new XMLHttpRequest();
+    let rawFile = new XMLHttpRequest();
     rawFile.overrideMimeType("application/json");
     rawFile.open("GET", file, true);
     rawFile.onreadystatechange = function ()
