@@ -15,3 +15,4 @@ $lang = array();
 $lang["PAGE_TITLE"] = "MakerSpace Management System";
 $lang["MAIN_HEADER"] = "MakerSpace Inventory";
 $lang["CATEGORY"] = "Category";
+$lang["ADMIN_HEADER"] = "MakerSpace Administrator Panel";
