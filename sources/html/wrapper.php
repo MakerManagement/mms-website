@@ -6,7 +6,7 @@
 
 <div id="top-banner">
     <div id="wrapper-logo">
-        <img class="resize_fit_center" src="sources/logos/logo-lang.png" alt="MakerSpace logo" />
+        <a href="/" ><img class="resize_fit_center" src="sources/logos/logo-lang.png" alt="MakerSpace logo" /></a>
     </div>
 
     <div class="search-box">
