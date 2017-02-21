@@ -18,7 +18,7 @@ include "sources/lang/common.php";
     <!-- Importing font for search icon !-->
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <script>
-        const itemId = "<?php echo $_GET["itemId"]; ?>";
+        const itemId = "<?php echo $_GET["item"]; ?>";
         const language = "<?php
             echo $_SESSION["lang"]; ?>";
     </script>

@@ -57,7 +57,7 @@ readTextFile(responseItems, function (text)
         const items_a = document.createElement("a");
         const items_li = document.createElement("li");
         items_a.textContent = item["item_name"];
-        items_a.setAttribute("href", "itempage.php?itemId=" + item._id);
+        items_a.setAttribute("href", "itempage.php?item=" + item._id);
 
         items_li.appendChild(items_a);
         ul_itemList.appendChild(items_li);
