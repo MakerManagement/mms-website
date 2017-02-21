@@ -32,11 +32,11 @@ include("sources/html/wrapper.php");
     <h1><?php echo $lang["ADMIN_HEADER"]; ?></h1>
     <div id="main-content">
         <p>BETA!</p>
-        <p>Insert items to send to the API. This will not check for errors and is still in beta. Use with caution.</p>
+        <p><?php echo $lang["ADMIN_DESCRIPTION"] ?></p>
 
         <p class="warning">
         <?php
-            if ($_SESSION["adminController"] == true)
+        if ($_SESSION["adminController"] == true)
         {
             echo "Item added to database";
         }
@@ -49,7 +49,7 @@ include("sources/html/wrapper.php");
         ?>
         </p>
 
-        <form action="sources/php/adminController.php" method="POST">
+        <form action="sources/background_php/adminController.php" method="POST">
             <input type="text" placeholder="Name" name="item_name" />
             <br />
             <br />

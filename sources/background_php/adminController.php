@@ -43,4 +43,4 @@ else
     $_SESSION["adminController"] = true;
 }
 
-//header("Location: " . $_SERVER["HTTP_REFERER"]);
+header("Location: " . $_SERVER["HTTP_REFERER"]);

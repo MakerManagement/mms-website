@@ -26,18 +26,18 @@ else if(isSet($_COOKIE['lang']))
 }
 else
 {
-    $lang = 'eng';
-    $_SESSION["lang"] = "eng";
+    $lang = 'en';
+    $_SESSION["lang"] = "en";
 }
 switch ($lang) {
-    case 'eng':
+    case 'en':
         $lang_file = 'lang.en.php';
         break;
-    case 'nor':
+    case 'no':
         $lang_file = 'lang.no.php';
         break;
     default:
         $lang_file = 'lang.en.php';
-        $_SESSION["lang"] = "eng";
+        $_SESSION["lang"] = "en";
 }
 include_once $lang_file;
