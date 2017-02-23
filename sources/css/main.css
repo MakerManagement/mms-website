@@ -144,12 +144,17 @@ Edge support
     width: 75%;
 }
 
+#main-body li{
+    
+}
+
 #aside-box{
     float: left;
     display: block;
     margin-right: 40px;
     border-right: solid;
     padding-right: 15px;
+    width: 15%;
 }
 
 #aside-box a{
