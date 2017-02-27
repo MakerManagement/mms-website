@@ -49,17 +49,17 @@ include("sources/html/wrapper.php");
         ?>
         </p>
 
-        <form action="sources/background_php/adminController.php" method="POST">
+        <form id="admin-form" action="sources/background_php/adminController.php" method="POST">
             <input type="text" placeholder="Name" name="item_name" />
             <br />
             <br />
             <input type="text" placeholder="Image URL" name="image_url" />
             <br />
             <br />
-            <input type="text" placeholder="Description English" name="desc_eng" />
+            <textarea rows="5" cols="50" placeholder="Description English" form="admin-form" name="desc_eng"></textarea>
             <br />
             <br />
-            <input type="text" placeholder="Description Norwegian" name="desc_nor" />
+            <textarea rows="5" cols="50" placeholder="Description Norwegian" form="admin-form" name="desc_nor"></textarea>
             <br />
             <br />
             <input type="submit" value="Send" />

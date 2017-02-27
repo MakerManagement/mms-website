@@ -1,3 +1,7 @@
+<head>
+    <link rel="icon" href="sources/logos/icon.png" />
+</head>
+
 <div id="language-chooser">
     <ul>
         <li><a href="/"><?php echo $lang["HOME_BTN"] ?></a></li>
