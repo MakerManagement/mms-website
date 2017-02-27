@@ -156,11 +156,14 @@ function setParam(name, value)
 }
 
 // Takes a string, and if the string is over 75 characters, it will add "..." to it
-function truncate(string){
+function truncate(string)
+{
     if (string.length > maxcharacters)
         { //noinspection JSUnresolvedFunction
             return string.substring(0,maxcharacters) + ' (...)';
         }
     else
+    {
         return string;
+    }
 }
