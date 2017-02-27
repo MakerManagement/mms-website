@@ -147,6 +147,20 @@ Edge support
 
 #main-body li a{
     text-decoration: none;
+    width: 100%;
+}
+
+#main-list li{
+    border: solid red;
+    float: left;
+    list-style-type: none;
+    width: 25%;
+    height: 120px;
+    text-align: center;
+    vertical-align: middle;
+    display: flex;
+    margin-right: 40px;
+    margin-bottom: 40px;
 }
 
 #aside-box{
@@ -174,18 +188,6 @@ a{
 #main-list{
     height: 1em;
     line-height: 1em;
-}
-
-#main-list li{
-    border: solid red;
-    float: left;
-    list-style-type: none;
-    margin: 10px 0;
-    width: 25%;
-    height: 100px;
-    text-align: center;
-    vertical-align: middle;
-    padding: 1em;
 }
 
 .item-header-list{
