@@ -206,12 +206,9 @@ To shorten the description text, this code is needed. Will create "..." after a 
     color: white;
     font-family: sans-serif;
     width: 25px; /* Could be anything you like. */
-<<<<<<< HEAD
 }
 
 .item-image-div{
     height: 20em;
     width: 20em;
-=======
->>>>>>> item-design
 }
