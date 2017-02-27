@@ -155,7 +155,7 @@ function truncate(string)
 {
     if (string.length > maxcharacters)
     { //noinspection JSUnresolvedFunction
-            return string.substring(0,maxcharacters) + '...';
+            return string.substring(0,maxcharacters) + ' (...)';
     }
     else
     {
