@@ -1,11 +1,13 @@
 <div id="language-chooser">
-    <li><a href="/"><?php echo $lang["HOME_BTN"] ?></a></li>
-    <li>|</li>
-    <li><a href="admin.php">Admin</a></li>
-    <li>|</li>
-    <li><a href="javascript:setParam('lang', 'en')">English</a></li>
-    <li>|</li>
-    <li><a href="javascript:setParam('lang','no')">Norsk</a></li>
+    <ul>
+        <li><a href="/"><?php echo $lang["HOME_BTN"] ?></a></li>
+        <li>|</li>
+        <li><a href="admin.php">Admin</a></li>
+        <li>|</li>
+        <li><a href="javascript:setParam('lang', 'en')">English</a></li>
+        <li>|</li>
+        <li><a href="javascript:setParam('lang','no')">Norsk</a></li>
+    </ul>
 </div>
 
 <div id="top-banner">
