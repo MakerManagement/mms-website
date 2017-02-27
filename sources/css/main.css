@@ -144,8 +144,9 @@ Edge support
     width: 75%;
 }
 
-#main-body li{
-    
+
+#main-body li a{
+    text-decoration: none;
 }
 
 #aside-box{
@@ -173,11 +174,22 @@ a{
 #main-list{
     height: 1em;
     line-height: 1em;
-    overflow: visible;
 }
 
 #main-list li{
+    border: solid red;
+    float: left;
+    list-style-type: none;
     margin: 10px 0;
+    width: 25%;
+    height: 100px;
+    text-align: center;
+    vertical-align: middle;
+    padding: 1em;
+}
+
+#main-list li a
+{
 }
 
 .warning{

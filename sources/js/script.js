@@ -17,6 +17,11 @@ function readTextFile(file, callback)
         {
             callback(rawFile.responseText);
         }
+        else
+        {
+            console.log("An error has occurred:");
+            //console.log("Ready state: " + rawFile.readyState +  ". Status: " + rawFile.status);
+        }
     };
     rawFile.send(null);
 }
@@ -56,18 +61,23 @@ readTextFile(responseItems, function (text)
     {
         const items_a = document.createElement("a");
         const items_li = document.createElement("li");
+        const items_description = document.createElement("p");
+        let items_description_content = document.createTextNode(item.description[language]);
+        items_description.appendChild(items_description_content);
         items_a.textContent = item["item_name"];
         items_a.setAttribute("href", "itempage.php?item=" + item._id);
 
         items_li.appendChild(items_a);
+        items_li.appendChild(items_description);
         ul_itemList.appendChild(items_li);
+        //console.log(item.description[language]);
     }
 });
 
 // Ask API for specific item
-const responseItem = "http://158.39.162.161/api/items/" + itemId;
+const responseSpecificItem = "http://158.39.162.161/api/items/" + itemId;
 
-readTextFile(responseItem, function (text)
+readTextFile(responseSpecificItem, function (text)
 {
     const data = JSON.parse(text);
 
