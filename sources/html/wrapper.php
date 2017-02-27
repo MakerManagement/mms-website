@@ -25,8 +25,10 @@
 
     <div class="search-box">
         <div class="search-wrapper ui-widget">
-            <span class="icon"><i class="fa fa-search"></i></span>
-            <input type="search" id="search" placeholder="Search for item">
+            <form action="/sources/background_php/searchQuery.php" method="GET">
+                <span class="icon"><i class="fa fa-search"></i></span>
+                <input name="q" type="search" id="search" placeholder="Search for item">
+            </form>
         </div>
     </div>
 </div>

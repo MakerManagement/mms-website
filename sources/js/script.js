@@ -103,7 +103,6 @@ readTextFile(responseItems, function (text)
         itemArray.push(item.item_name);
 
     }
-    searchItemArray();
 });
 
 // Ask API for specific item
@@ -166,22 +165,10 @@ function truncate(string){
         return string;
 }
 
-function searchItemArrayPrimer()
+document.getElementById("search").addEventListener("keypress", function (event)
 {
-    searchItemArray(document.getElementById("search").value);
-}
-
-function searchItemArray(item)
-{
-    for (let i = 0; i < itemArray.length; i++)
+    if (event.keyCode == 13)
     {
-        if (itemArray[i] == item)
-        {
-            console.log("In array!");
-        }
-        else
-        {
-            //console.log("Not in array!");
-        }
+        console.log(document.getElementById("search").innerHTML);
     }
-}
+});
