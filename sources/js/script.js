@@ -164,11 +164,3 @@ function truncate(string){
     else
         return string;
 }
-
-document.getElementById("search").addEventListener("keypress", function (event)
-{
-    if (event.keyCode == 13)
-    {
-        console.log(document.getElementById("search").innerHTML);
-    }
-});
