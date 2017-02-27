@@ -5,6 +5,11 @@
 /** @namespace item.categories.category */
 /** @namespace item.categories */
 
+/*
+GLOBAL VARIABLES
+ */
+const maxcharacters = 75;
+
 // Function to ask API, returns JSON
 function readTextFile(file, callback)
 {
@@ -16,6 +21,11 @@ function readTextFile(file, callback)
         if (rawFile.readyState === 4 && rawFile.status == "200")
         {
             callback(rawFile.responseText);
+        }
+        else
+        {
+            console.log("An error has occurred:");
+            //console.log("Ready state: " + rawFile.readyState +  ". Status: " + rawFile.status);
         }
     };
     rawFile.send(null);
@@ -54,20 +64,46 @@ readTextFile(responseItems, function (text)
     const data = JSON.parse(text);
     for (const item of Object.values(data))
     {
+        // Creates the elements for structure
         const items_a = document.createElement("a");
         const items_li = document.createElement("li");
-        items_a.textContent = item["item_name"];
+        const items_description = document.createElement("p");
+        const a_header = document.createElement("p");
+        const description_span = document.createElement("span");
+        const description_span2 = document.createElement("span");
+
+        // Sets a class to the title of the item
+        a_header.setAttribute("class", "item-header-list");
+
+        // Sets class to the different spans, for design
+        description_span.setAttribute("class", "text ellipsis");
+        description_span2.setAttribute("class", "text-concat");
+
+        // Creates a text node for description with truncating in case of long string
+        let items_description_content = document.createTextNode(truncate(item.description[language]));
+
+        // Sets all the attributes and make sure the elemets are nested the correct way
+        items_description.appendChild(items_description_content);
+        description_span2.appendChild(items_description);
+
+        // Appends the span, so they are nested
+        description_span.appendChild(description_span2);
+
+        a_header.textContent = item["item_name"];
+        items_a.appendChild(a_header);
+        items_a.appendChild(description_span);
         items_a.setAttribute("href", "itempage.php?item=" + item._id);
 
+        // Appends the elements to the list
         items_li.appendChild(items_a);
         ul_itemList.appendChild(items_li);
     }
 });
 
 // Ask API for specific item
-const responseItem = "http://158.39.162.161/api/items/" + itemId;
+const responseSpecificItem = "http://158.39.162.161/api/items/" + itemId;
 
-readTextFile(responseItem, function (text)
+readTextFile(responseSpecificItem, function (text)
 {
     const data = JSON.parse(text);
 
@@ -113,3 +149,15 @@ function setParam(name, value)
     /* execute search */
     l.search = search;
 }
+
+// Takes a string, and if the string is over 75 characters, it will add "..." to it
+function truncate(string){
+    if (string.length > maxcharacters)
+        { //noinspection JSUnresolvedFunction
+            return string.substring(0,maxcharacters) + '...';
+        }
+    else
+        return string;
+}
+
+
