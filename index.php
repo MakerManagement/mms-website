@@ -10,6 +10,8 @@ include "sources/lang/common.php";
     <link rel="stylesheet" type="text/css" href="sources/css/main.css" />
     <!-- Importing font for search icon !-->
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- jQuery if needed !-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script>
         const language = "<?php
             echo $_SESSION["lang"]; ?>";
