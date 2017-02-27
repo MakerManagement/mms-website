@@ -1,5 +1,5 @@
 :root{
-    --background_color: #3e4854;
+    --background_color: #4d5864;
     --search_text_color: #81929d;
 }
 
@@ -19,7 +19,7 @@ Edge support
 }
 
 #language-chooser{
-    margin-bottom: 0%;
+    margin-bottom: 0;
     text-align: right;
     vertical-align: middle;
 }
@@ -42,7 +42,7 @@ Edge support
 }
 
 #top-banner{
-    padding-top: 50px;
+    padding-top: 25px;
     display: -webkit-flex;
     display: flex;
     align-items: center;
@@ -67,11 +67,11 @@ Edge support
 .search-wrapper input#search{
     width: 700px;
     height: 50px;
-    background: #2b303b;
+    background: #3e4453;
     border: none;
     font-size: 10pt;
     float: left;
-    color: #9bb1c7;
+    color: black;
     padding-left: 45px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;

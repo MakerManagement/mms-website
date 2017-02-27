@@ -9,6 +9,7 @@
 GLOBAL VARIABLES
  */
 const maxcharacters = 75;
+const itemArray = [];
 
 // Function to ask API, returns JSON
 function readTextFile(file, callback)
@@ -97,6 +98,10 @@ readTextFile(responseItems, function (text)
         // Appends the elements to the list
         items_li.appendChild(items_a);
         ul_itemList.appendChild(items_li);
+
+        // Adds the item to the array for the search bar
+        itemArray.push(item.item_name);
+
     }
 });
 
@@ -162,5 +167,3 @@ function truncate(string)
         return string;
     }
 }
-
-

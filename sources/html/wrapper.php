@@ -1,11 +1,13 @@
 <div id="language-chooser">
-    <li><a href="/"><?php echo $lang["HOME_BTN"] ?></a></li>
-    <li>|</li>
-    <li><a href="admin.php">Admin</a></li>
-    <li>|</li>
-    <li><a href="javascript:setParam('lang', 'en')">English</a></li>
-    <li>|</li>
-    <li><a href="javascript:setParam('lang','no')">Norsk</a></li>
+    <ul>
+        <li><a href="/"><?php echo $lang["HOME_BTN"] ?></a></li>
+        <li>|</li>
+        <li><a href="admin.php">Admin</a></li>
+        <li>|</li>
+        <li><a href="javascript:setParam('lang', 'en')">English</a></li>
+        <li>|</li>
+        <li><a href="javascript:setParam('lang','no')">Norsk</a></li>
+    </ul>
 </div>
 
 <div id="top-banner">
@@ -13,10 +15,20 @@
         <a href="/" ><img class="resize_fit_center" src="sources/logos/logo-lang.png" alt="MakerSpace logo" /></a>
     </div>
 
+    <script>
+        $( function() {
+            $( "#search" ).autocomplete({
+                source: itemArray
+            });
+        } );
+    </script>
+
     <div class="search-box">
-        <div class="search-wrapper">
-            <span class="icon"><i class="fa fa-search"></i></span>
-            <input type="search" id="search" placeholder="Search for item">
+        <div class="search-wrapper ui-widget">
+            <form action="/sources/background_php/searchQuery.php" method="GET">
+                <span class="icon"><i class="fa fa-search"></i></span>
+                <input name="q" type="search" id="search" placeholder="Search for item">
+            </form>
         </div>
     </div>
 </div>
