@@ -24,7 +24,6 @@ include("sources/html/wrapper.php");
     <h1><?php echo $lang["MAIN_HEADER"]; ?></h1>
     <div id="main-content">
         <ul id="main-list">
-
         </ul>
     </div>
 </div>
