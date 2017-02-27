@@ -15,8 +15,16 @@
         <a href="/" ><img class="resize_fit_center" src="sources/logos/logo-lang.png" alt="MakerSpace logo" /></a>
     </div>
 
+    <script>
+        $( function() {
+            $( "#search" ).autocomplete({
+                source: itemArray
+            });
+        } );
+    </script>
+
     <div class="search-box">
-        <div class="search-wrapper">
+        <div class="search-wrapper ui-widget">
             <span class="icon"><i class="fa fa-search"></i></span>
             <input type="search" id="search" placeholder="Search for item">
         </div>

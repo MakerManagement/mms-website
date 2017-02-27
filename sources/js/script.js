@@ -9,6 +9,7 @@
 GLOBAL VARIABLES
  */
 const maxcharacters = 75;
+const itemArray = [];
 
 // Function to ask API, returns JSON
 function readTextFile(file, callback)
@@ -97,7 +98,12 @@ readTextFile(responseItems, function (text)
         // Appends the elements to the list
         items_li.appendChild(items_a);
         ul_itemList.appendChild(items_li);
+
+        // Adds the item to the array for the search bar
+        itemArray.push(item.item_name);
+
     }
+    searchItemArray();
 });
 
 // Ask API for specific item
@@ -160,4 +166,22 @@ function truncate(string){
         return string;
 }
 
+function searchItemArrayPrimer()
+{
+    searchItemArray(document.getElementById("search").value);
+}
 
+function searchItemArray(item)
+{
+    for (let i = 0; i < itemArray.length; i++)
+    {
+        if (itemArray[i] == item)
+        {
+            console.log("In array!");
+        }
+        else
+        {
+            //console.log("Not in array!");
+        }
+    }
+}
