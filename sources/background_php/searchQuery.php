@@ -29,16 +29,18 @@ curl_close($curl);
 $json = json_decode($response, true);
 
 $item_id = 0;
+$correctItem = false;
 foreach ($json as $jsonItem)
 {
     $itemInJson = $jsonItem["item_name"];
     if ($itemInJson == $item)
     {
+        $correctItem = true;
         $item_id = $jsonItem["_id"];
         header("Location: /itempage.php?item=" . $item_id);
     }
-    else
+    elseif ($itemInJson != $item && $correctItem == false)
     {
-        header("Location: /");
+        header("Location: /index.php");
     }
 }
