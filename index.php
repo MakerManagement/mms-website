@@ -6,6 +6,7 @@ include "sources/lang/common.php";
 <html lang="<?php echo $_SESSION["lang"]; ?>">
 <head>
     <meta charset="UTF-8" />
+    <link rel="icon" href="sources/logos/icon.png" />
     <title>Makerspace Management System</title>
     <link rel="stylesheet" type="text/css" href="sources/css/main.css" />
     <!-- Importing font for search icon !-->
