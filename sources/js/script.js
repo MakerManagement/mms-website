@@ -60,7 +60,7 @@ readTextFile(responseItems, function (text)
 {
 
     const ul_itemList = document.getElementById("main-list");
-
+    
     const data = JSON.parse(text);
     for (const item of Object.values(data))
     {
@@ -154,9 +154,9 @@ function setParam(name, value)
 function truncate(string)
 {
     if (string.length > maxcharacters)
-    { //noinspection JSUnresolvedFunction
+        { //noinspection JSUnresolvedFunction
             return string.substring(0,maxcharacters) + ' (...)';
-    }
+        }
     else
     {
         return string;
