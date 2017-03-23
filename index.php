@@ -19,7 +19,7 @@ include "sources/lang/common.php";
         const language = "<?php
             echo $_SESSION["lang"]; ?>";
     </script>
-    <script src="sources/js/script.js"></script>
+    <script src="sources/js/script.js" async></script>
 </head>
 <body>
 <?php
@@ -31,6 +31,27 @@ include("sources/html/wrapper.php");
         <ul id="main-list">
         </ul>
     </div>
+    <a href="#" id="main-load-more">Load More</a>
 </div>
+<script type="text/javascript">
+    function loadMore()
+    {
+        $(function ()
+        {
+            $(console.log("jQuery runned!"));
+            $("li:hidden").slice(0, 3).show();
+            $("#main-load-more").on('click', function (e)
+            {
+                e.preventDefault();
+                $("li:hidden").slice(0, 3).slideDown();
+                if ($("li:hidden").length == 0)
+                {
+                    $("#main-load-more").fadeOut('slow');
+                }
+            });
+
+        });
+    }
+</script>
 </body>
 </html>

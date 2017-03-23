@@ -158,7 +158,7 @@ Edge support
     height: 120px;
     text-align: center;
     vertical-align: middle;
-    display: flex;
+    display: none;
     margin-right: 40px;
     margin-bottom: 40px;
 }
@@ -207,10 +207,33 @@ To shorten the description text, this code is needed. Will create "..." after a 
     font-size: 14px;
     color: white;
     font-family: sans-serif;
-    width: 25px; /* Could be anything you like. */
+    width: 25px;
 }
 
 .item-image-div{
     height: 20em;
     width: 20em;
+}
+
+#main-load-more{
+    margin-left: 40%;
+    float: left;
+    clear: both;
+    padding: 10px;
+    text-align: center;
+    background-color: #33739E;
+    color: #fff;
+    border-width: 0 1px 1px 0;
+    border-style: solid;
+    border-color: #4d5864;
+    transition: all 600ms ease-in-out;
+    -webkit-transition: all 600ms ease-in-out;
+    -moz-transition: all 600ms ease-in-out;
+    -o-transition: all 600ms ease-in-out;
+    text-decoration: none;
+}
+
+#main-load-more:hover{
+    background-color: #fff;
+    color: #33739E;
 }

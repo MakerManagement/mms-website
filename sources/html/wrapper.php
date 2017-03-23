@@ -1,5 +1,8 @@
 <head>
-    <link rel="icon" href="sources/logos/icon.png" />
+    <link rel="icon" href="../sources/logos/icon.png" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
 
 <div id="language-chooser">

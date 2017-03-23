@@ -59,9 +59,8 @@ const responseItems = "http://158.39.162.161/api/items";
 
 readTextFile(responseItems, function (text)
 {
-
     const ul_itemList = document.getElementById("main-list");
-    
+
     const data = JSON.parse(text);
     for (const item of Object.values(data))
     {
@@ -94,6 +93,7 @@ readTextFile(responseItems, function (text)
         items_a.appendChild(a_header);
         items_a.appendChild(description_span);
         items_a.setAttribute("href", "itempage.php?item=" + item._id);
+        items_a.setAttribute("class", "item-box");
 
         // Appends the elements to the list
         items_li.appendChild(items_a);
@@ -101,8 +101,11 @@ readTextFile(responseItems, function (text)
 
         // Adds the item to the array for the search bar
         itemArray.push(item.item_name);
+        isDone = true;
 
     }
+    console.log("Items loaded!");
+    loadMore();
 });
 
 // Ask API for specific item
