@@ -9,7 +9,7 @@ include "sources/lang/common.php";
     <title>Makerspace Management System</title>
     <link rel="stylesheet" type="text/css" href="sources/css/main.css" />
     <!-- Importing font for search icon !-->
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="sources/css/font-awesome.min.css" rel="stylesheet">
     <!-- jQuery if needed !-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -38,7 +38,6 @@ include("sources/html/wrapper.php");
     {
         $(function ()
         {
-            $(console.log("jQuery runned!"));
             $("li:hidden").slice(0, 3).show();
             $("#main-load-more").on('click', function (e)
             {
