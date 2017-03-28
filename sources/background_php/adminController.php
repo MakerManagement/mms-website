@@ -11,6 +11,10 @@ $name = $_POST["item_name"];
 $url = $_POST["image_url"];
 $engDescription = $_POST["desc_eng"];
 $norDescription = $_POST["desc_nor"];
+$category = $_POST["category"];
+$quantity = $_POST["quantity"];
+//$location = $_POST["location"];
+
 
 $rawData = array(
     "image_url" => $url,
@@ -18,7 +22,9 @@ $rawData = array(
     "description" => array(
         "en" => $engDescription,
         "no" => $norDescription
-    )
+    ),
+    "category" => $category,
+    "quantity" => $quantity
 );
 
 $dataToJson = json_encode($rawData);

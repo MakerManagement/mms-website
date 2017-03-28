@@ -6,6 +6,7 @@ include "sources/lang/common.php";
 <html lang="<?php echo $_SESSION["lang"]; ?>">
 <head>
     <meta charset="UTF-8" />
+    <link href="sources/logos/icon.png" rel="shortcut icon" type="image/x-icon" />
     <title>Makerspace Management System</title>
     <link rel="stylesheet" type="text/css" href="sources/css/main.css" />
     <!-- Importing font for search icon !-->
@@ -19,7 +20,6 @@ include "sources/lang/common.php";
         const language = "<?php
             echo $_SESSION["lang"]; ?>";
     </script>
-    <script src="sources/js/script.js" async></script>
 </head>
 <body>
 <?php
@@ -38,18 +38,21 @@ include("sources/html/wrapper.php");
     {
         $(function ()
         {
-            $("li:hidden").slice(0, 3).show();
+            $("li:hidden").slice(0, 12).show();
             $("#main-load-more").on('click', function (e)
             {
                 e.preventDefault();
-                $("li:hidden").slice(0, 3).slideDown();
+                $("li:hidden").slice(0, 12).slideDown();
                 if ($("li:hidden").length == 0)
                 {
                     $("#main-load-more").fadeOut('slow');
                 }
+                $('html,body').animate({
+                    scrollTop: $(this).offset().top
+                }, 1500);
             });
-
         });
+
     }
 </script>
 </body>

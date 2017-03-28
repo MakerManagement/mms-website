@@ -5,11 +5,7 @@
 /** @namespace item.categories.category */
 /** @namespace item.categories */
 
-/*
-GLOBAL VARIABLES
- */
-const maxcharacters = 75;
-const itemArray = [];
+var itemArray = [];
 
 // Function to ask API, returns JSON
 function readTextFile(file, callback)
@@ -25,8 +21,8 @@ function readTextFile(file, callback)
         }
         else
         {
-            console.log("An error has occurred:");
-            //console.log("Ready state: " + rawFile.readyState +  ". Status: " + rawFile.status);
+            //console.log("An error has occurred:");
+            console.log("Ready state: " + rawFile.readyState +  ". Status: " + rawFile.status);
         }
     };
     rawFile.send(null);
@@ -37,11 +33,13 @@ const responseCategories = "http://158.39.162.161/api/categories";
 readTextFile(responseCategories, function (text)
 {
     const ul_categoryList = document.getElementById("category-list");
+    const category_selector = document.getElementById("category-selector");
 
-    const data = JSON.parse(text);
+    const data = JSON.parse(text).reverse();
     for (const item of Object.values(data))
     {
         const categories = item.category[language];
+        const category_id = item._id;
 
         const categories_a = document.createElement("a");
         const categories_li = document.createElement("li");
@@ -51,6 +49,15 @@ readTextFile(responseCategories, function (text)
 
         categories_li.appendChild(categories_a);
         ul_categoryList.appendChild(categories_li);
+
+        if (typeof category_selector !== "undefined" && category_selector != null)
+        {
+            let option = document.createElement("option");
+            option.value = category_id;
+            option.innerHTML = categories;
+            category_selector.appendChild(option);
+        }
+
     }
 });
 
@@ -61,7 +68,7 @@ readTextFile(responseItems, function (text)
 {
     const ul_itemList = document.getElementById("main-list");
 
-    const data = JSON.parse(text);
+    const data = JSON.parse(text).reverse();
     for (const item of Object.values(data))
     {
         // Creates the elements for structure
@@ -80,7 +87,7 @@ readTextFile(responseItems, function (text)
         description_span2.setAttribute("class", "text-concat");
 
         // Creates a text node for description with truncating in case of long string
-        let items_description_content = document.createTextNode(truncate(item.description[language]));
+        let items_description_content = document.createTextNode(truncate(item.description[language], 75));
 
         // Sets all the attributes and make sure the elemets are nested the correct way
         items_description.appendChild(items_description_content);
@@ -89,15 +96,18 @@ readTextFile(responseItems, function (text)
         // Appends the span, so they are nested
         description_span.appendChild(description_span2);
 
-        a_header.textContent = item["item_name"];
+        a_header.textContent = truncate(item["item_name"], 24);
         items_a.appendChild(a_header);
         items_a.appendChild(description_span);
         items_a.setAttribute("href", "itempage.php?item=" + item._id);
         items_a.setAttribute("class", "item-box");
 
-        // Appends the elements to the list
-        items_li.appendChild(items_a);
-        ul_itemList.appendChild(items_li);
+        if (ul_itemList != null)
+        {
+            // Appends the elements to the list
+            items_li.appendChild(items_a);
+            ul_itemList.appendChild(items_li);
+        }
 
         // Adds the item to the array for the search bar
         itemArray.push(item.item_name);
@@ -108,22 +118,24 @@ readTextFile(responseItems, function (text)
     loadMore();
 });
 
-// Ask API for specific item
-const responseSpecificItem = "http://158.39.162.161/api/items/" + itemId;
-
-readTextFile(responseSpecificItem, function (text)
+if (typeof itemId !== 'undefined')
 {
-    const data = JSON.parse(text);
+// Ask API for specific item
+    const responseSpecificItem = "http://158.39.162.161/api/items/" + itemId;
 
-    const title = data.item_name;
-    const description = data.description[language];
-    const image = data.image_url;
+    readTextFile(responseSpecificItem, function (text)
+    {
+        const data = JSON.parse(text);
 
-    document.getElementById("item").innerHTML = title;
-    document.getElementById("description").innerHTML = description;
-    document.getElementById("item_image").src = image;
-});
+        const title = data.item_name;
+        const description = data.description[language];
+        const image = data.image_url;
 
+        document.getElementById("item").innerHTML = title;
+        document.getElementById("description").innerHTML = description;
+        document.getElementById("item_image").src = image;
+    });
+}
 // Function gotten from http://stackoverflow.com/questions/6899097/how-to-add-a-parameter-to-the-url, by user: hakre
 function setParam(name, value)
 {
@@ -159,7 +171,7 @@ function setParam(name, value)
 }
 
 // Takes a string, and if the string is over 75 characters, it will add "..." to it
-function truncate(string)
+function truncate(string, maxcharacters)
 {
     if (string.length > maxcharacters)
         { //noinspection JSUnresolvedFunction

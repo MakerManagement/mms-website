@@ -12,6 +12,7 @@ include "sources/lang/common.php";
 <!DOCTYPE html>
 <html lang="<?php echo $_SESSION["lang"]; ?>">
 <head>
+    <link href="sources/logos/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <meta charset="UTF-8" />
     <title>Makerspace Management System</title>
     <link rel="stylesheet" type="text/css" href="sources/css/main.css" />
@@ -32,7 +33,7 @@ include("sources/html/wrapper.php");
     <h1><?php echo $lang["ADMIN_HEADER"]; ?></h1>
     <div id="main-content">
         <p>BETA!</p>
-        <p><?php echo $lang["ADMIN_DESCRIPTION"] ?></p>
+        <p><?php echo $lang["ADMIN_DESCRIPTION"]; ?></p>
 
         <p class="warning">
         <?php
@@ -50,10 +51,15 @@ include("sources/html/wrapper.php");
         </p>
 
         <form id="admin-form" action="sources/background_php/adminController.php" method="POST">
-            <input type="text" placeholder="Name" name="item_name" />
+            <input type="text" placeholder="Name" name="item_name" required />
             <br />
             <br />
             <input type="text" placeholder="Image URL" name="image_url" />
+            <br />
+            <br />
+            <select id="category-selector" name="category" required>
+                <option><?php echo $lang["category_selector"]; ?></option>
+            </select>
             <br />
             <br />
             <textarea rows="5" cols="50" placeholder="Description English" form="admin-form" name="desc_eng"></textarea>
@@ -62,6 +68,10 @@ include("sources/html/wrapper.php");
             <textarea rows="5" cols="50" placeholder="Description Norwegian" form="admin-form" name="desc_nor"></textarea>
             <br />
             <br />
+            <input type="number" placeholder="Quantity" name="quantity" min="0"/>
+            <br />
+            <br />
+            <input type="text" placeholder="Location" name="location" />
             <input type="submit" value="Send" />
         </form>
     </div>

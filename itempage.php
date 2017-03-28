@@ -12,6 +12,7 @@ include "sources/lang/common.php";
 <!--suppress ALL -->
 <html lang="<?php echo $_SESSION["lang"]; ?>">
 <head>
+    <link href="sources/logos/icon.png" rel="shortcut icon" type="image/x-icon" />
     <meta charset="UTF-8" />
     <title>Makerspace Management System</title>
     <link rel="stylesheet" type="text/css" href="sources/css/main.css" />
