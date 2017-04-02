@@ -131,13 +131,17 @@ if (typeof itemId !== 'undefined')
 
         const title = data.item_name;
         const description = data.description[language];
+        const descEng = data.description["en"];
+        const descNor = data.description["no"];
         const image = data.image_url;
         const quantity = data.quantity;
         //const location = data.locale;
+        const category = data.categories;
 
         if (typeof quantity === 'undefined' || quantity === null)
         {
             document.getElementById("item-quantity").innerHTML = "N/A";
+            document.getElementById("quantity").value = "";
         }
         /* else if (typeof location === 'undefined' || location === null)
         {
@@ -147,14 +151,57 @@ if (typeof itemId !== 'undefined')
         else
         {
             document.getElementById("item-quantity").innerHTML = quantity;
+            document.getElementById("quantity").value = quantity;
             //document.getElementById("item-location").innerHTML = location;
         }
 
         document.getElementById("item").innerHTML = title;
         document.getElementById("description").innerHTML = description;
         document.getElementById("item_image").src = image;
+
+        // Fill update box
+        document.getElementById("item_name").value = title;
+        document.getElementById("image_url").value = image;
+        document.getElementById("desc_eng").value = descEng;
+        document.getElementById("desc_nor").value = descNor;
+        document.getElementById("item_id").value = itemId;
+
+        // Loops through the select box, and select the correct one
+        let select = document.getElementById("category-selector");
+        console.log("Current item-category: " + category);
+        for (let i = 0; i < select.length; i++)
+        {
+            let currentSelect = select.options[i].value;
+            console.log(currentSelect);
+            if (currentSelect === category)
+            {
+                select.value = currentSelect;
+            }
+        }
+
     });
 }
+
+var responseLocations = "http://158.39.162.161/api/locations/";
+readTextFile(responseLocations, function (text)
+{
+    const location_selector = document.getElementById("location_selector");
+
+    const data = JSON.parse(text).reverse();
+    for (const item of Object.values(data))
+    {
+        console.log("For loop");
+        if (typeof location_selector !== "undefined" && location_selector !== null)
+        {
+            console.log("Options will be filled");
+            let option = document.createElement("option");
+            option.value = item._id;
+            option.innerHTML = item.locale;
+            location_selector.appendChild(option);
+            }
+        }
+});
+
 // Function gotten from http://stackoverflow.com/questions/6899097/how-to-add-a-parameter-to-the-url, by user: hakre
 function setParam(name, value)
 {

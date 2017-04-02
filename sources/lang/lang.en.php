@@ -19,3 +19,5 @@ $lang["ADMIN_HEADER"] = "MakerSpace Administrator Panel";
 $lang["ADMIN_DESCRIPTION"] = "Insert items to send to the API. This will not check for errors and is still in beta. Use with caution.";
 $lang["HOME_BTN"] = "Home";
 $lang["category_selector"] = "Select category";
+$lang["edit_itempage"] = "Edit or delete item";
+$lang["location_selector"] = "Chose location";

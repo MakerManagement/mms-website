@@ -256,3 +256,10 @@ To shorten the description text, this code is needed. Will create "..." after a 
     text-align: center;
     padding: 5%;
 }
+
+#update-item{
+    float: left;
+    display: block;
+    margin-left: 5%;
+    border: solid white;
+}

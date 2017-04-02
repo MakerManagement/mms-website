@@ -21,7 +21,25 @@ include "sources/lang/common.php";
     <script>
         const language = "<?php
             echo $_SESSION["lang"]; ?>";
-        console.log(document.referrer);
+
+        function checkData()
+        {
+            const categoryRaw = document.getElementById("category-selector");
+            const category = categoryRaw.options[categoryRaw.selectedIndex].value;
+
+            const locationRaw = document.getElementById("location-selector");
+            const location = locationRaw.options[categoryRaw.selectedIndex].value;
+            if (category === "0")
+            {
+                alert("Please chose category");
+                return false;
+            }
+            else if (location === "0")
+            {
+                alert("Please chose location");
+                return false;
+            }
+        }
     </script>
 </head>
 <body>
@@ -49,7 +67,7 @@ include("sources/html/wrapper.php");
         ?>
         </p>
 
-        <form id="admin-form" action="sources/background_php/adminController.php" method="POST">
+        <form id="admin-form" onsubmit="return checkData()" action="sources/background_php/adminController.php" method="POST">
             <input type="text" placeholder="Name" name="item_name" required />
             <br />
             <br />
@@ -57,7 +75,7 @@ include("sources/html/wrapper.php");
             <br />
             <br />
             <select id="category-selector" name="category" required>
-                <option><?php echo $lang["category_selector"]; ?></option>
+                <option value="0"><?php echo $lang["category_selector"]; ?></option>
             </select>
             <br />
             <br />
@@ -70,7 +88,12 @@ include("sources/html/wrapper.php");
             <input type="number" placeholder="Quantity" name="quantity" min="0"/>
             <br />
             <br />
-            <input type="text" placeholder="Location" name="location" />
+            <input type="hidden" name="type" value="1"/>
+            <select id="location_selector" name="location" required>
+                <option value="0"><?php echo $lang["location_selector"]; ?></option>
+            </select>
+            <br />
+            <br />
             <input type="submit" value="Send" />
         </form>
     </div>
