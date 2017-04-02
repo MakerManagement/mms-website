@@ -22,14 +22,14 @@ function readTextFile(file, callback)
         else
         {
             //console.log("An error has occurred:");
-            console.log("Ready state: " + rawFile.readyState +  ". Status: " + rawFile.status);
+            //console.log("Ready state: " + rawFile.readyState +  ". Status: " + rawFile.status);
         }
     };
     rawFile.send(null);
 }
 
 // Ask API for all categories
-const responseCategories = "http://158.39.162.161/api/categories";
+var responseCategories = "http://158.39.162.161/api/categories";
 readTextFile(responseCategories, function (text)
 {
     const ul_categoryList = document.getElementById("category-list");
@@ -50,7 +50,7 @@ readTextFile(responseCategories, function (text)
         categories_li.appendChild(categories_a);
         ul_categoryList.appendChild(categories_li);
 
-        if (typeof category_selector !== "undefined" && category_selector != null)
+        if (typeof category_selector !== "undefined" && category_selector !== null)
         {
             let option = document.createElement("option");
             option.value = category_id;
@@ -62,7 +62,7 @@ readTextFile(responseCategories, function (text)
 });
 
 // Ask API for all items
-const responseItems = "http://158.39.162.161/api/items";
+var responseItems = "http://158.39.162.161/api/items";
 
 readTextFile(responseItems, function (text)
 {
@@ -102,7 +102,7 @@ readTextFile(responseItems, function (text)
         items_a.setAttribute("href", "itempage.php?item=" + item._id);
         items_a.setAttribute("class", "item-box");
 
-        if (ul_itemList != null)
+        if (ul_itemList !== null)
         {
             // Appends the elements to the list
             items_li.appendChild(items_a);
@@ -111,11 +111,13 @@ readTextFile(responseItems, function (text)
 
         // Adds the item to the array for the search bar
         itemArray.push(item.item_name);
-        isDone = true;
 
     }
-    console.log("Items loaded!");
-    loadMore();
+    // If list doesnt exist
+    if (ul_itemList !== null)
+    {
+        loadMore();
+    }
 });
 
 if (typeof itemId !== 'undefined')
@@ -130,6 +132,23 @@ if (typeof itemId !== 'undefined')
         const title = data.item_name;
         const description = data.description[language];
         const image = data.image_url;
+        const quantity = data.quantity;
+        //const location = data.locale;
+
+        if (typeof quantity === 'undefined' || quantity === null)
+        {
+            document.getElementById("item-quantity").innerHTML = "N/A";
+        }
+        /* else if (typeof location === 'undefined' || location === null)
+        {
+            document.getElementById("item-location").innerHTML = "N/A";
+        }
+        */
+        else
+        {
+            document.getElementById("item-quantity").innerHTML = quantity;
+            //document.getElementById("item-location").innerHTML = location;
+        }
 
         document.getElementById("item").innerHTML = title;
         document.getElementById("description").innerHTML = description;

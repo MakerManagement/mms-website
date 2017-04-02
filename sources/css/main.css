@@ -210,9 +210,15 @@ To shorten the description text, this code is needed. Will create "..." after a 
     width: 25px;
 }
 
+.item-image-div img{
+    height: auto;
+    width: 35%;
+    float: left;
+}
+
 .item-image-div{
-    height: 20em;
-    width: 20em;
+    display: block;
+    width: auto;
 }
 
 #main-load-more{
@@ -236,4 +242,17 @@ To shorten the description text, this code is needed. Will create "..." after a 
 #main-load-more:hover{
     background-color: #fff;
     color: #33739E;
+}
+
+#item-info{
+    margin-left: 5%;
+    float: left;
+    display: flex;
+}
+
+#item-info table, th, td{
+    border: 1px solid white;
+    border-collapse: collapse;
+    text-align: center;
+    padding: 5%;
 }

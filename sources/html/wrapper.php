@@ -24,22 +24,6 @@
         <a href="/" ><img class="resize_fit_center" src="sources/logos/logo-lang.png" alt="MakerSpace logo" /></a>
     </div>
 
-    <script>
-        $( function() {
-            $( "#search" ).autocomplete({
-                source: itemArray,
-                select: function(event, ui)
-                {
-                    if (ui.item)
-                    {
-                        $("#search").val(ui.item.value);
-                    }
-                    $("#search-submit").click();
-                }
-            });
-        } );
-    </script>
-
     <div class="search-box">
         <div class="search-wrapper ui-widget">
             <form action="/sources/background_php/searchQuery.php" method="GET">
@@ -60,3 +44,18 @@
         </ul>
     </aside>
 </div>
+<script>
+    $( function() {
+        $( "#search" ).autocomplete({
+            source: itemArray,
+            select: function(event, ui)
+            {
+                if (ui.item)
+                {
+                    $("#search").val(ui.item.value);
+                }
+                $("#search-submit").click();
+            }
+        });
+    } );
+</script>

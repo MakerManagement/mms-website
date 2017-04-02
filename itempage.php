@@ -24,7 +24,6 @@ include "sources/lang/common.php";
         const language = "<?php
             echo $_SESSION["lang"]; ?>";
     </script>
-    <script src="sources/js/script.js" async></script>
 </head>
 <body>
 <?php
@@ -37,18 +36,19 @@ include("sources/html/wrapper.php");
         <div class="item-image-div">
             <img alt="The item picture is not availible." id="item_image" />
         </div>
+        <div id="item-info">
+            <table style="width: 100%">
+                <tr>
+                    <th>Quantity</th>
+                    <th>Location</th>
+                </tr>
+                <tr>
+                    <td id="item-quantity">N/A</td>
+                    <td id="item-location">N/A</td>
+                </tr>
+            </table>
+        </div>
     </div>
 </div>
-<script>
-    $(document).ready(function(){
-        imageWidth = $('.item-image-div img').width();
-        parentWidth = $('.item-image-div').width();
-        console.log(imageWidth + " " + parentWidth);
-        if (imageWidth < parentWidth) {
-            $('.item-image-div img').css('width', '100%');
-            console.log("HEY");
-        }
-    });
-</script>
 </body>
 </html>

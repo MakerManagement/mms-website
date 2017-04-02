@@ -23,7 +23,6 @@ include "sources/lang/common.php";
             echo $_SESSION["lang"]; ?>";
         console.log(document.referrer);
     </script>
-    <script src="sources/js/script.js" async></script>
 </head>
 <body>
 <?php
