@@ -135,24 +135,38 @@ if (typeof itemId !== 'undefined')
         const descNor = data.description["no"];
         const image = data.image_url;
         const quantity = data.quantity;
-        //const location = data.locale;
-        const category = data.categories;
+
+        let location = null;
+        let location_id;
+
+        if (typeof data.locale !== 'undefined')
+        {
+            location = data.locale["locale"];
+            location_id = data.locale["_id"];
+        }
+
+        // Fills category
+        let category;
+        for (const item of Object.values(data.categories))
+        {
+            category = item._id;
+        }
 
         if (typeof quantity === 'undefined' || quantity === null)
         {
             document.getElementById("item-quantity").innerHTML = "N/A";
-            document.getElementById("quantity").value = "";
+            document.getElementById("quantity").value = "0";
         }
-        /* else if (typeof location === 'undefined' || location === null)
-        {
-            document.getElementById("item-location").innerHTML = "N/A";
-        }
-        */
         else
         {
             document.getElementById("item-quantity").innerHTML = quantity;
             document.getElementById("quantity").value = quantity;
-            //document.getElementById("item-location").innerHTML = location;
+            document.getElementById("item-location").innerHTML = location;
+        }
+
+        if (typeof location === "undefined" || location === null)
+        {
+            document.getElementById("item-location").innerHTML = "N/A";
         }
 
         document.getElementById("item").innerHTML = title;
@@ -166,19 +180,27 @@ if (typeof itemId !== 'undefined')
         document.getElementById("desc_nor").value = descNor;
         document.getElementById("item_id").value = itemId;
 
-        // Loops through the select box, and select the correct one
-        let select = document.getElementById("category-selector");
-        console.log("Current item-category: " + category);
-        for (let i = 0; i < select.length; i++)
+        // Loops through the categorySelect box, and selects the correct one
+        let categorySelect = document.getElementById("category-selector");
+        let locationSelect = document.getElementById("location_selector");
+
+        for (let i = 0; i < categorySelect.length; i++)
         {
-            let currentSelect = select.options[i].value;
-            console.log(currentSelect);
+            let currentSelect = categorySelect.options[i].value;
             if (currentSelect === category)
             {
-                select.value = currentSelect;
+                categorySelect.value = currentSelect;
             }
         }
 
+        for (let i = 0; i < locationSelect.length; i++)
+        {
+            let currentSelect = locationSelect.options[i].value;
+            if (currentSelect === location_id)
+            {
+                locationSelect.value = currentSelect;
+            }
+        }
     });
 }
 
@@ -190,10 +212,8 @@ readTextFile(responseLocations, function (text)
     const data = JSON.parse(text).reverse();
     for (const item of Object.values(data))
     {
-        console.log("For loop");
         if (typeof location_selector !== "undefined" && location_selector !== null)
         {
-            console.log("Options will be filled");
             let option = document.createElement("option");
             option.value = item._id;
             option.innerHTML = item.locale;

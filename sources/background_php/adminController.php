@@ -14,7 +14,7 @@ $norDescription = $_POST["desc_nor"];
 $category = $_POST["category"];
 $quantity = $_POST["quantity"];
 $itemId = $_POST["item_id"];
-//$location = $_POST["location"];
+$location = $_POST["location"];
 
 $whichForm = $_POST["type"];
 $ch = null;
@@ -23,13 +23,13 @@ switch ($whichForm)
 {
     // Post new item from admin page
     case "1":
-        postPut_item($url, $name, $engDescription, $norDescription, $category, $quantity, "items", "POST", $itemId);
+        postPut_item($url, $name, $engDescription, $norDescription, $category, $quantity, "items", "POST", $itemId, $location);
         break;
     // Update or delete from item page
     case "2":
         if ($_POST["update"])
         {
-            postPut_item($url, $name, $engDescription, $norDescription, $category, $quantity, "items", "PUT", $itemId);
+            postPut_item($url, $name, $engDescription, $norDescription, $category, $quantity, "items", "PUT", $itemId, $location);
         }
         else if ($_POST["delete"])
         {
@@ -79,7 +79,7 @@ function delete_item($type, $sendType, $itemId)
     //echo ("http://158.39.162.161/api/". $type);
 }
 
-function postPut_item($url, $name, $engDescription, $norDescription, $category, $quantity, $type, $sendType, $itemId)
+function postPut_item($url, $name, $engDescription, $norDescription, $category, $quantity, $type, $sendType, $itemId, $location)
 {
     $rawData = null;
 
@@ -93,7 +93,8 @@ function postPut_item($url, $name, $engDescription, $norDescription, $category, 
                 "no" => $norDescription
             ),
             "categories" => $category,
-            "quantity" => $quantity
+            "quantity" => $quantity,
+            "locale" => $location
         );
     }
     else if ($sendType == "PUT")
@@ -107,7 +108,8 @@ function postPut_item($url, $name, $engDescription, $norDescription, $category, 
                 "no" => $norDescription
             ),
             "categories" => $category,
-            "quantity" => $quantity
+            "quantity" => $quantity,
+            "locale" => $location
         );
     }
     else
