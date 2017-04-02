@@ -142,6 +142,9 @@ Edge support
 #main-body{
     float: left;
     width: 75%;
+    border-left: solid white;
+    margin-left: 40px;
+    padding-left: 15px;
 }
 
 
@@ -166,9 +169,6 @@ Edge support
 #aside-box{
     float: left;
     display: block;
-    margin-right: 40px;
-    border-right: solid;
-    padding-right: 15px;
     width: 15%;
 }
 
