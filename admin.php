@@ -52,6 +52,7 @@ include("sources/html/wrapper.php");
         <p>BETA!</p>
         <p><?php echo $lang["ADMIN_DESCRIPTION"]; ?></p>
 
+        <a href="javascript:setParam('type', 'item')"><?php echo $lang["add_items"]; ?></a>
         <p class="warning">
         <?php
         if ($_SESSION["adminController"] == true)
@@ -66,37 +67,22 @@ include("sources/html/wrapper.php");
         $_SESSION["adminControllerFailed"] = false;
         ?>
         </p>
+        <?php
+        $type = $_GET["type"];
 
-        <form id="admin-form" onsubmit="return checkData()" action="sources/background_php/adminController.php" method="POST">
-            <input type="text" placeholder="Name" name="item_name" required />
-            <br />
-            <br />
-            <input type="text" placeholder="Image URL" name="image_url" />
-            <br />
-            <br />
-            <select id="category-selector" name="category" required>
-                <option value="0"><?php echo $lang["category_selector"]; ?></option>
-            </select>
-            <br />
-            <br />
-            <textarea rows="5" cols="50" placeholder="Description English" form="admin-form" name="desc_eng"></textarea>
-            <br />
-            <br />
-            <textarea rows="5" cols="50" placeholder="Description Norwegian" form="admin-form" name="desc_nor"></textarea>
-            <br />
-            <br />
-            <input type="number" placeholder="Quantity" name="quantity" min="0"/>
-            <br />
-            <br />
-            <input type="hidden" name="type" value="1"/>
-            <select id="location_selector" name="location" required>
-                <option value="0"><?php echo $lang["location_selector"]; ?></option>
-            </select>
-            <br />
-            <br />
-            <input type="submit" value="Send" />
-        </form>
-    </div>
+        switch ($type)
+        {
+            case "item":
+                include ("sources/html/item.php");
+                break;
+            case "category":
+                break;
+            case "locale":
+                break;
+            case "tag":
+                break;
+        }
+        ?>
 </div>
 </body>
 </html>

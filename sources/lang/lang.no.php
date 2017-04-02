@@ -21,3 +21,4 @@ $lang["HOME_BTN"] = "Hjem";
 $lang["category_selector"] = "Velg kategori";
 $lang["edit_itempage"] = "Endre eller slett item";
 $lang["location_selector"] = "Velg lokasjon";
+$lang["add_items"] = "Legg til ny item";
