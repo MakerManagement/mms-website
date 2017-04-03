@@ -263,3 +263,8 @@ To shorten the description text, this code is needed. Will create "..." after a 
     margin-left: 5%;
     border: solid white;
 }
+
+#item-message{
+    color: red;
+    font-size: larger;
+}

@@ -30,6 +30,7 @@ include("sources/html/wrapper.php");
 <div id="main-body">
     <h1><?php echo $lang["MAIN_HEADER"]; ?></h1>
     <div id="main-content">
+        <p id="item-message"></p>
         <ul id="main-list">
         </ul>
     </div>
