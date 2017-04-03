@@ -19,8 +19,6 @@ include "sources/lang/common.php";
     <script>
         const language = "<?php
             echo $_SESSION["lang"]; ?>";
-        const categoryItem = "<?php
-            echo $_GET["category"]; ?>";
     </script>
 </head>
 <body>
