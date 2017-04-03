@@ -45,7 +45,7 @@ readTextFile(responseCategories, function (text)
         const categories_li = document.createElement("li");
 
         categories_a.textContent = categories;
-        categories_a.setAttribute("href", "#");
+        categories_a.setAttribute("href", "index.php?category=" + item._id);
 
         categories_li.appendChild(categories_a);
         ul_categoryList.appendChild(categories_li);
@@ -254,6 +254,69 @@ function setParam(name, value)
 
     /* execute search */
     l.search = search;
+}
+
+if (categoryItem !== "")
+{
+    var responseCategoryItems = "http://158.39.162.161/api/items/category/" + categoryItem;
+    readTextFile(responseCategoryItems, function (text)
+    {
+        const ul_itemList = document.getElementById("main-list");
+
+        document.getElementById("main-list").innerHTML = "";
+
+
+        const data = JSON.parse(text).reverse();
+        for (const item of Object.values(data))
+        {
+            // Creates the elements for structure
+            const items_a = document.createElement("a");
+            const items_li = document.createElement("li");
+            const items_description = document.createElement("p");
+            const a_header = document.createElement("p");
+            const description_span = document.createElement("span");
+            const description_span2 = document.createElement("span");
+
+            // Sets a class to the title of the item
+            a_header.setAttribute("class", "item-header-list");
+
+            // Sets class to the different spans, for design
+            description_span.setAttribute("class", "text ellipsis");
+            description_span2.setAttribute("class", "text-concat");
+
+            // Creates a text node for description with truncating in case of long string
+            let items_description_content = document.createTextNode(truncate(item.description[language], 75));
+
+            // Sets all the attributes and make sure the elemets are nested the correct way
+            items_description.appendChild(items_description_content);
+            description_span2.appendChild(items_description);
+
+            // Appends the span, so they are nested
+            description_span.appendChild(description_span2);
+
+            a_header.textContent = truncate(item["item_name"], 24);
+            items_a.appendChild(a_header);
+            items_a.appendChild(description_span);
+            items_a.setAttribute("href", "itempage.php?item=" + item._id);
+            items_a.setAttribute("class", "item-box");
+
+            if (ul_itemList !== null)
+            {
+                // Appends the elements to the list
+                items_li.appendChild(items_a);
+                ul_itemList.appendChild(items_li);
+            }
+
+            // Adds the item to the array for the search bar
+            itemArray.push(item.item_name);
+
+        }
+        // If list doesnt exist
+        if (ul_itemList !== null)
+        {
+            loadMore();
+        }
+    });
 }
 
 // Takes a string, and if the string is over 75 characters, it will add "..." to it

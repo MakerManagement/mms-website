@@ -15,6 +15,10 @@ $category = $_POST["category"];
 $quantity = $_POST["quantity"];
 $itemId = $_POST["item_id"];
 $location = $_POST["location"];
+$categoryNameNo = $_POST["category_nameNo"];
+$categoryNameEn = $_POST["category_nameEn"];
+$localeName = $_POST["locale_name"];
+
 
 $whichForm = $_POST["type"];
 $ch = null;
@@ -40,21 +44,13 @@ switch ($whichForm)
             echo "Something went wrong";
         }
         break;
+    // Update or delete category from admin page
     case "3":
-        // POST new category
-        if ($_POST["category_button"])
-        {
-
-        }
-        else if ($_POST["tag_button"])
-        {
-
-        }
-        else
-        {
-            echo "Something went wrong";
-        }
+        newCategory($categoryNameNo, $categoryNameEn, "POST", "categories");
         break;
+    // Update or delete locale from admin page
+    case "4":
+        newLocale($localeName, "POST", "locations");
 }
 
 function delete_item($type, $sendType, $itemId)
@@ -138,6 +134,67 @@ function postPut_item($url, $name, $engDescription, $norDescription, $category, 
     ));
 
     curl_exec($ch);
+}
+
+function newCategory($nameNo, $nameEn, $sendType, $location)
+{
+    $rawData = array(
+        "category" => array(
+            "en" => $nameEn,
+            "no" => $nameNo
+        )
+    );
+
+    $dataToJson = json_encode($rawData);
+    $ch = curl_init("http://158.39.162.161/api/" . $location);
+    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $sendType);
+
+    if ($sendType == "POST")
+    {
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $dataToJson);
+    }
+    else if ($sendType == "PUT")
+    {
+        curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($rawData));
+    }
+
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+        "Content-Type: application/json",
+        "Content-Length: " . strlen($dataToJson)
+    ));
+
+    curl_exec($ch);
+
+}
+
+function newLocale($localeName, $sendType, $location)
+{
+    $rawData = array(
+        "locale" => $localeName
+    );
+
+    $dataToJson = json_encode($rawData);
+    $ch = curl_init("http://158.39.162.161/api/" . $location);
+    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $sendType);
+
+    if ($sendType == "POST")
+    {
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $dataToJson);
+    }
+    else if ($sendType == "PUT")
+    {
+        curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($rawData));
+    }
+
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+        "Content-Type: application/json",
+        "Content-Length: " . strlen($dataToJson)
+    ));
+
+    curl_exec($ch);
+
 }
 /*
 if (curl_exec($ch) === false)

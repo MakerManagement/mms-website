@@ -53,6 +53,8 @@ include("sources/html/wrapper.php");
         <p><?php echo $lang["ADMIN_DESCRIPTION"]; ?></p>
 
         <a href="javascript:setParam('type', 'item')"><?php echo $lang["add_items"]; ?></a>
+        <a href="javascript:setParam('type', 'category')"><?php echo $lang["add_category"]; ?></a>
+        <a href="javascript:setParam('type', 'locale')"><?php echo $lang["add_locale"]; ?></a>
         <p class="warning">
         <?php
         if ($_SESSION["adminController"] == true)
@@ -76,8 +78,10 @@ include("sources/html/wrapper.php");
                 include ("sources/html/item.php");
                 break;
             case "category":
+                include ("sources/html/category.php");
                 break;
             case "locale":
+                include ("sources/html/locale.php");
                 break;
             case "tag":
                 break;

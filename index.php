@@ -19,6 +19,8 @@ include "sources/lang/common.php";
     <script>
         const language = "<?php
             echo $_SESSION["lang"]; ?>";
+        const categoryItem = "<?php
+            echo $_GET["category"]; ?>";
     </script>
 </head>
 <body>
@@ -47,6 +49,7 @@ include("sources/html/wrapper.php");
                 {
                     $("#main-load-more").fadeOut('slow');
                 }
+                else
                 $('html,body').animate({
                     scrollTop: $(this).offset().top
                 }, 1500);
