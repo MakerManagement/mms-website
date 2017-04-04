@@ -77,8 +77,8 @@ include("sources/html/wrapper.php");
                 <input id="image_url" type="text" placeholder="Image URL" name="image_url" />
                 <br />
                 <br />
-                <select id="category-selector" name="category" required>
-                    <option value="0"><?php echo $lang["category_selector"]; ?></option>
+                <select id="category-selector" name="category">
+                    <option value=""><?php echo $lang["category_selector"]; ?></option>
                 </select>
                 <br />
                 <br />
@@ -91,8 +91,8 @@ include("sources/html/wrapper.php");
                 <input id="quantity" type="number" placeholder="Quantity" name="quantity" min="0"/>
                 <br />
                 <br />
-                <select id="location_selector" name="location" required>
-                    <option value="0"><?php echo $lang["location_selector"]; ?></option>
+                <select id="location_selector" name="location">
+                    <option value=""><?php echo $lang["location_selector"]; ?></option>
                 </select>
                 <br />
                 <br />

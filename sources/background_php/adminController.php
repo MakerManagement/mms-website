@@ -15,9 +15,6 @@ $category = $_POST["category"];
 $quantity = $_POST["quantity"];
 $itemId = $_POST["item_id"];
 $location = $_POST["location"];
-$categoryNameNo = $_POST["category_nameNo"];
-$categoryNameEn = $_POST["category_nameEn"];
-$localeName = $_POST["locale_name"];
 
 
 $whichForm = $_POST["type"];
@@ -46,10 +43,13 @@ switch ($whichForm)
         break;
     // Update or delete category from admin page
     case "3":
+        $categoryNameNo = $_POST["category_nameNo"];
+        $categoryNameEn = $_POST["category_nameEn"];
         newCategory($categoryNameNo, $categoryNameEn, "POST", "categories");
         break;
     // Update or delete locale from admin page
     case "4":
+        $localeName = $_POST["locale_name"];
         newLocale($localeName, "POST", "locations");
 }
 
@@ -71,42 +71,44 @@ function delete_item($type, $sendType, $itemId)
     ));
 
     curl_exec($ch);
-    //echo "</br>";
-    //echo ("http://158.39.162.161/api/". $type);
+    header("Location: /");
 }
 
 function postPut_item($url, $name, $engDescription, $norDescription, $category, $quantity, $type, $sendType, $itemId, $location)
 {
-    $rawData = null;
+    $rawData = array(
+        "image_url" => $url,
+        "item_name" => $name,
+        "description" => array(
+            "en" => $engDescription,
+            "no" => $norDescription
+        ),
+        "quantity" => $quantity,
+    );
 
     if ($sendType == "POST")
     {
-        $rawData = array(
-            "image_url" => $url,
-            "item_name" => $name,
-            "description" => array(
-                "en" => $engDescription,
-                "no" => $norDescription
-            ),
-            "categories" => $category,
-            "quantity" => $quantity,
-            "locale" => $location
-        );
+        if ($location !== "")
+        {
+            $rawData = array_merge($rawData, array("locale" => $location));
+        }
+        if ($category !== "")
+        {
+            $rawData = array_merge($rawData, array("categories" => $category));
+        }
     }
     else if ($sendType == "PUT")
     {
-        $rawData = array(
-            "_id" => $itemId,
-            "image_url" => $url,
-            "item_name" => $name,
-            "description" => array(
-                "en" => $engDescription,
-                "no" => $norDescription
-            ),
-            "categories" => $category,
-            "quantity" => $quantity,
-            "locale" => $location
-        );
+        $rawData = array_merge($rawData, array("_id" => $itemId));
+
+        if ($location !== "")
+        {
+            $rawData = array_merge($rawData, array("locale" => $location));
+        }
+        if ($category !== "")
+        {
+            $rawData = array_merge($rawData, array("categories" => $category));
+        }
     }
     else
     {
@@ -115,16 +117,18 @@ function postPut_item($url, $name, $engDescription, $norDescription, $category, 
     }
 
     $dataToJson = json_encode($rawData);
-    $ch = curl_init("http://158.39.162.161/api/". $type);
-    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $sendType);
 
     if ($sendType == "POST")
     {
+        $ch = curl_init("http://158.39.162.161/api/". $type);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $sendType);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $dataToJson);
     }
     else if ($sendType == "PUT")
     {
-        curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($rawData));
+        $ch = curl_init("http://158.39.162.161/api/". $type . "/" . $itemId);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $sendType);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $dataToJson);
     }
 
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -133,7 +137,14 @@ function postPut_item($url, $name, $engDescription, $norDescription, $category, 
         "Content-Length: " . strlen($dataToJson)
     ));
 
-    curl_exec($ch);
+    echo $dataToJson;
+
+    $result = curl_exec($ch);
+    curl_close($ch);
+
+    //echo $result;
+
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
 }
 
 function newCategory($nameNo, $nameEn, $sendType, $location)
@@ -165,6 +176,7 @@ function newCategory($nameNo, $nameEn, $sendType, $location)
     ));
 
     curl_exec($ch);
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
 
 }
 
@@ -206,4 +218,3 @@ else
     $_SESSION["adminController"] = true;
 }
 */
-header("Location: /");
