@@ -20,6 +20,32 @@ include "sources/lang/common.php";
         const language = "<?php
             echo $_SESSION["lang"]; ?>";
     </script>
+    <script type="text/javascript">
+        function loadMore()
+        {
+            $(function ()
+            {
+                if ($("li:hidden").length <= 12)
+                {
+                    $("#main-load-more").fadeOut('fast');
+                }
+                $("li:hidden").slice(0, 12).show();
+                $("#main-load-more").on('click', function (e)
+                {
+                    e.preventDefault();
+                    $("li:hidden").slice(0, 12).slideDown();
+                    if ($("li:hidden").length == 0)
+                    {
+                        $("#main-load-more").fadeOut('slow');
+                    }
+                    $('html,body').animate({
+                        scrollTop: $(this).offset().top
+                    }, 1500);
+                });
+            });
+
+        }
+    </script>
 </head>
 <body>
 <?php
@@ -34,28 +60,5 @@ include("sources/html/wrapper.php");
     </div>
     <a href="#" id="main-load-more">Load More</a>
 </div>
-<script type="text/javascript">
-    function loadMore()
-    {
-        $(function ()
-        {
-            $("li:hidden").slice(0, 12).show();
-            $("#main-load-more").on('click', function (e)
-            {
-                e.preventDefault();
-                $("li:hidden").slice(0, 12).slideDown();
-                if ($("li:hidden").length == 0)
-                {
-                    $("#main-load-more").fadeOut('slow');
-                }
-                else
-                $('html,body').animate({
-                    scrollTop: $(this).offset().top
-                }, 1500);
-            });
-        });
-
-    }
-</script>
 </body>
 </html>
