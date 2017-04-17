@@ -31,7 +31,7 @@ include "sources/lang/common.php";
             const location = locationRaw.options[categoryRaw.selectedIndex].value;
             if (category === "0")
             {
-                alert("Please chose category");
+                alert("Please choose category");
                 return false;
             }
             else if (location === "0")
