@@ -13,7 +13,7 @@ Edge support
  */
 @supports (-ms-ime-align:auto) {
     body{
-        background: #3e4854;
+        background: #4d5864;
         color: white;
     }
 }
