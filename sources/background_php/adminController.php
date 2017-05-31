@@ -206,6 +206,7 @@ function newLocale($localeName, $sendType, $location)
     ));
 
     curl_exec($ch);
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
 
 }
 /*
