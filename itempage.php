@@ -57,8 +57,8 @@ include("sources/html/wrapper.php");
         <div id="item-info">
             <table style="width: 100%">
                 <tr>
-                    <th>Quantity</th>
-                    <th>Location</th>
+                    <th><?php echo $lang["quantity"]; ?></th>
+                    <th><?php echo $lang["location"]; ?></th>
                 </tr>
                 <tr>
                     <td id="item-quantity">N/A</td>

@@ -25,3 +25,6 @@ $lang["add_items"] = "Add new item";
 $lang["add_category"] = "Add new category";
 $lang["locale_placeholder"] = "Enter a location name";
 $lang["add_locale"] = "Add new location";
+$lang["location"] = "Location";
+$lang["quantity"] = "Quantity";
+$lang["load"] = "Load More";

@@ -25,3 +25,6 @@ $lang["add_items"] = "Legg til ny item";
 $lang["add_category"] = "Legg til ny kategori";
 $lang["locale_placeholder"] = "Skriv inn lokasjonsnavn";
 $lang["add_locale"] = "Legg til ny lokasjon";
+$lang["location"] = "Lokasjon";
+$lang["quantity"] = "Antall";
+$lang["load"] = "Last fler";

@@ -58,7 +58,7 @@ include("sources/html/wrapper.php");
         <ul id="main-list">
         </ul>
     </div>
-    <a href="#" id="main-load-more">Load More</a>
+    <a href="#" id="main-load-more"><?php echo $lang["load"]; ?></a>
 </div>
 </body>
 </html>
