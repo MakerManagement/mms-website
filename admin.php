@@ -49,8 +49,6 @@ include("sources/html/wrapper.php");
 <div id="main-body">
     <h1><?php echo $lang["ADMIN_HEADER"]; ?></h1>
     <div id="main-content">
-        <p>BETA!</p>
-        <p><?php echo $lang["ADMIN_DESCRIPTION"]; ?></p>
 
         <a href="javascript:setParam('type', 'item')"><?php echo $lang["add_items"]; ?></a>
         <a href="javascript:setParam('type', 'category')"><?php echo $lang["add_category"]; ?></a>

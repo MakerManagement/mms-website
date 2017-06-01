@@ -27,4 +27,4 @@ $lang["locale_placeholder"] = "Skriv inn lokasjonsnavn";
 $lang["add_locale"] = "Legg til ny lokasjon";
 $lang["location"] = "Lokasjon";
 $lang["quantity"] = "Antall";
-$lang["load"] = "Last fler";
+$lang["load"] = "Last Inn Mer";

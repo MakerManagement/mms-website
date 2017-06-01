@@ -1,6 +1,6 @@
 <h2><?php echo $lang["add_items"]; ?></h2>
 <form id="admin-form" onsubmit="return checkData()" action="sources/background_php/adminController.php" method="POST">
-    <input type="text" placeholder="Name" name="item_name" required />
+    <input type="text" placeholder="Name" name="item_name" required /> <span style="color: red;">*</span>
     <br />
     <br />
     <input type="text" placeholder="Image URL" name="image_url" />
